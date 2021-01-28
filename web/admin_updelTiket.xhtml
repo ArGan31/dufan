@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Ticket</title>
+    </h:head>
+    <h:body>
+        <ui:decorate template="baseTemplateAdmin.xhtml">       
+            <ui:define name="body">
+               <div class="bg-img" style="background-image: url('../img/background.jpg'); 
+                          background-repeat: no-repeat; background-size: cover">
+                <center><br/><br/><br/><br/><br/>
+                     <ui:include src="admin_showTiket.xhtml"></ui:include>
+                        <div style="width: 30%; background-color: lightblue; border: 5px solid black; opacity: 0.9 ">
+                            <h:form>
+                                <br/>
+                                <h:outputLabel style="font-family: Centaur; font-size: 25px;">Data ticket</h:outputLabel>
+                                <hr style="background-color: black; height: 2px;"/>
+                                <table>
+                                    <c:if test="#{tiket.message == 'data ditemukan'}">
+                                        <div class="alert alert-success" role="alert">
+                                             <strong>Success!! Data Ditemukan</strong>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="#{tiket.message == 'data kosong'}">
+                                         <div class="alert alert-danger" role="alert">
+                                             <strong>Error!! Data Tidak Ditemukan</strong>
+                                         </div>
+                                    </c:if>
+                                    <c:if test="#{tiket.message == 'data diubah'}">
+                                         <div class="alert alert-success" role="alert">
+                                            <strong>Success!! Data Berhasil Diubah </strong>
+                                         </div>
+                                     </c:if>
+                                    <c:if test="#{tiket.message == 'data dihapus'}">
+                                        <div class="alert alert-success" role="alert">
+                                            <strong>Success!! Data Berhasil Dihapus</strong>
+                                        </div>
+                                     </c:if>
+                                    <tr>
+                                        <td>
+                                            <h:outputLabel style="font-family: Centaur; font-size: 20px;">
+                                                kode tiket</h:outputLabel>
+                                        </td>
+                                        <td width="5%"></td>
+                                        <td>
+                                            <b:inputText style="font-family: Centaur; font-size: 14px" 
+                                                         placeholder="masukkan kode yang dicari" required="true" required-message="masukan id"
+                                                         value="#{tiket.kodeTiket}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <center>
+                                                <b:commandButton look="btn-success" value="Cari Data Berita" 
+                                                                 icon="search" action="#{tiket.getbyid}"
+                                                                 style="background-color: lightskyblue; border-color: black"/>
+                                            </center>
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 20px">
+                                                Regular :</h:outputLabel></td>
+                                        <td></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 14px" 
+                                                         value="#{tiket.reguler}"/></td> 
+                                    </tr>    
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 20px">
+                                                Premium :</h:outputLabel></td>
+                                        <td></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 14px" 
+                                                         value="#{tiket.premium}"/></td> 
+                                    </tr>  
+                                    <tr>
+                                        <td><h:outputLabel style="font-family: Centaur; font-size: 20px">
+                                                Annual pass :</h:outputLabel></td>
+                                        <td></td>
+                                        <td><b:inputText style="font-family: Centaur; font-size: 14px" 
+                                                         value="#{tiket.annualPas}"/></td> 
+                                    </tr>  
+                                    <tr>
+                                        <td colspan="3">
+                                            <center>
+                                                <b:commandButton look="btn btn-primary" value="UBAH" icon="edit" 
+                                                                 action="#{tiket.update}" style="margin-right: 20px"/>
+                           
+                                                <b:commandButton look="btn btn-danger" value="HAPUS" icon="trash"
+                                                                 action="#{tiket.delete}"/>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                            </h:form>
+                        </div><br/><br/>
+                </center>
+                        </div>
+            </ui:define>
+        </ui:decorate>
+    </h:body>
+</html>

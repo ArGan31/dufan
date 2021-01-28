@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+    <head>
+        <title>Jadwal</title>
+    </head>
+    <body>
+  
+        <ui:decorate template="baseTemplate.xhtml">       
+            <ui:define name="body">
+                <center>
+                    <div style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/background.jpg)" >
+                        <h:form>
+                            <br/><br/><br/>
+                                        <h3 class="mt-5" style="width: 30%; text-align: center; background: lightblue;" >
+                                            Berikut Daftar Jadwal Buka Dufan
+                                        </h3> 
+                                <h:dataTable  class="tabel1" border="1" 
+                                             value="#{jadwal.getallrecords()}" var="list" cellspacing="0" style="width: 30%; text-align: center; background: lightblue;" >
+                                    <h:column>
+                                        <f:facet name="header">Kode Jadwal</f:facet>
+                                        #{list.kodeJadwal}
+                                    </h:column>                
+                                        #{list.kodeJadwal}
+
+                                    <h:column>
+                                        <f:facet name="header">Senin</f:facet>
+                                        #{list.senin}
+                                    </h:column>
+                                    <h:column>                   
+                                        <f:facet name="header">Selasa</f:facet>               
+                                        #{list.selasa}
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Rabu</f:facet>
+                                        #{list.rabu}
+                                    </h:column>
+                                    <h:column>                   
+                                        <f:facet name="header">Kamis</f:facet>               
+                                        #{list.kamis}
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Jumat</f:facet>
+                                        #{list.jumat}
+                                    </h:column>
+                                    <h:column>                   
+                                        <f:facet name="header">Sabtu</f:facet>               
+                                        #{list.sabtu}
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Minggu</f:facet>
+                                        #{list.minggu}
+                                    </h:column>
+                                </h:dataTable>
+                        </h:form>
+                      
+                    </div>
+                </center>
+            </ui:define>
+        </ui:decorate>
+        </body>
+</html>

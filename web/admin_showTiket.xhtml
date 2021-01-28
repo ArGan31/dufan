@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Show ticket</title>
+    </h:head>
+    <h:body>
+        <h3 style="font-family: Centaur; font-size: 25px; font-weight: bold">
+                                            Daftar Ticket 
+                                       </h3> 
+        <h:dataTable border="1" value="#{tiket.getallrecords()}" var="p" cellspacing="0" 
+                     style="border: 5px solid black; font-size: 14px; text-align: center;background-color: lightblue; width: 60%; opacity: 0.9">
+            <h:column>
+                <f:facet name="header">Kode tiket</f:facet>
+                #{p.kodeTiket}
+            </h:column>
+            <h:column>
+                <f:facet name="header">regular</f:facet>
+                #{p.reguler}
+            </h:column>
+            <h:column>
+                <f:facet name="header">premium</f:facet>
+                #{p.premium}
+            </h:column>
+            <h:column>
+                <f:facet name="header">annual pass</f:facet>
+                #{p.annualPas}
+            </h:column>
+        </h:dataTable><br/>
+        <h:link outcome="admin_createTiket">
+            <font style="font-size: 18px; font-weight: bold; font-family: centaur;color: white">(+)Tambah tiket</font>
+        </h:link><br/><BR/><br/>
+    </h:body>
+</html>

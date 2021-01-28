@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 25, 2020 5:23:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Jadwal" table="jadwal" catalog="dufann" optimistic-lock="version">
+        <id name="kodeJadwal" type="int">
+            <column name="kode_jadwal" />
+            <generator class="assigned" />
+        </id>
+        <property name="senin" type="string">
+            <column name="senin" length="50" not-null="true" />
+        </property>
+        <property name="selasa" type="string">
+            <column name="selasa" length="50" not-null="true" />
+        </property>
+        <property name="rabu" type="string">
+            <column name="rabu" length="50" not-null="true" />
+        </property>
+        <property name="kamis" type="string">
+            <column name="kamis" length="50" not-null="true" />
+        </property>
+        <property name="jumat" type="string">
+            <column name="jumat" length="50" not-null="true" />
+        </property>
+        <property name="sabtu" type="string">
+            <column name="sabtu" length="50" not-null="true" />
+        </property>
+        <property name="minggu" type="string">
+            <column name="minggu" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

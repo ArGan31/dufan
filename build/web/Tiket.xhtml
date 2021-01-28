@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+    <head>
+        <title>Ticket</title>
+    </head>
+        <ui:decorate template="baseTemplate.xhtml">      
+           
+            <ui:define name="body">
+                <div style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/background.jpg)" >
+                 <center>
+                <h:form>
+                    <br/><br/><br/><br/>
+                    <h3 class="mt-5" style="color: white;">
+                      Berikut Daftar harga ticket
+                    </h3> <br/><br/>
+                    <h:dataTable border="1" value="#{tiket.getallrecords()}" var="list" cellspacing="0" 
+                                 style="text-align: center; padding: 20px; width: 50%; background-color: lightblue">
+                        <h:column> 
+                            <f:facet name="header">Kode Tiket</f:facet>
+                            #{list.kodeTiket}
+                        </h:column>
+                        <h:column>                   
+                              <f:facet name="header">Reguler</f:facet>               
+                            #{list.reguler}
+                        </h:column>
+                            <h:column>                   
+                              <f:facet name="header">Premium</f:facet>               
+                            #{list.premium}
+                        </h:column>
+                            <h:column>                   
+                              <f:facet name="header">AnnualPas</f:facet>               
+                            #{list.annualPas}
+                            </h:column>
+                    </h:dataTable>    
+                </h:form>
+               </center>
+                    <br/><br/>
+                    <div style="padding-left: 3%; padding-right: 20%;">
+                         <h3 style="padding: 10px; color: white;">   
+                            Keterangan :
+                        </h3>
+                    <h5 style="padding: 10px; color: white;">   
+                            1. Reguler
+                        </h5>
+                            <p style=" margin: 10px;text-indent: 40px; color: white;">
+                            Tiket Reguler adalah tiket biasa yang bisa digunakan sekali masuk saja dan kamu dapat menikmati semua wahana.
+                            </p>
+                        
+                    <h5 style="padding: 10px; color: white;">   
+                            2. premium
+                        </h5>
+                    <p style="margin: 10px;text-indent: 40px;color: white; ">
+                            tiket Premium sama dengan tiket reguler namun disini kamu bisa bebas antri di 12 wahana Favorit serta menikmati fasilitas seru di Premium Lounge (Wifi, Soft Drink, Sofa Pijat dan Ruang istirahat)
+                            </p>
+                       <h5 style="padding: 10px; color: white;">   
+                            3. Annual Pas
+                        </h5>
+                           <p style="margin: 10px;text-indent: 40px; color: white;">
+                            Tiket Annual Pas adalah sebuah kartu yang kamu dapatkan jika membeli tiket annual pas yang berarti kamu dapat mendatangi dufan selama satu tahun secara gratis dan tentu saja kamu dapat menikmati semua wahana
+                            </p>
+                        </div>
+                </div>
+            </ui:define>    
+        </ui:decorate>   
+</html>
